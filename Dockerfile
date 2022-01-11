@@ -17,12 +17,10 @@ RUN node -v
 COPY package.json /usr/src/app/
 COPY package-lock.json /usr/src/app/
 
-RUN npm install
-
 # Bundle app source
 COPY . /usr/src/app
 
-
+RUN npm install
 
 # Port to listener
 EXPOSE 3000
@@ -30,13 +28,13 @@ EXPOSE 3000
 # Environment variables
 ENV NODE_ENV test
 
+# Main command
+CMD [ "npm", "test" ]
+
 # Environment variables
 ENV NODE_ENV production
 ENV PORT 3000
 ENV PUBLIC_PATH "/"
-
-# Main command
-CMD [ "npm", "test" ]
 
 RUN npm run start:build
 
