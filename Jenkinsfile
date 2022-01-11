@@ -8,9 +8,10 @@ node {
 //      echo "Branch: ${env.BRANCH_NAME}"
 //      sh 'docker -v'
 //      sh 'printenv'
+        sh 'NODE_ENV test'
 //    }
     stage('Build Docker test'){
-     sh 'docker build -t react-test -f Dockerfile --no-cache .'
+     sh 'npm test'
     }
     stage('Docker test'){
       sh 'docker run --rm react-test'
