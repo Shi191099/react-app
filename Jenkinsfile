@@ -8,6 +8,7 @@ node {
 //      echo "Branch: ${env.BRANCH_NAME}"
         sh 'docker -v'
 //      sh 'printenv'
+        sh   '$env:NODE_ENV="test"'
         
 //    }
     stage('Build Docker test'){
