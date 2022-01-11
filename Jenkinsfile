@@ -11,7 +11,7 @@ node {
         
 //    }
     stage('Build Docker test'){
-     sh 'npm test'
+     sh 'npm install'
     }
     stage('Docker test'){
       sh 'docker run --rm react-test'
