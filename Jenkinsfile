@@ -11,7 +11,7 @@ node {
         
 //    }
     stage('Build Docker test'){
-     sh 'docker build -t react-test -f Dockerfile --no-cache .'
+     sh 'docker build -t react-test node:12.18.1 .'
     }
     stage('Docker test'){
       sh 'docker run --rm react-test'
