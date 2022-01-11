@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:900&display=swap');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: content-box;
+}
+
+
+.App {
+  width:100vw;
+  height:100vh;
+  display:grid;
+  grid-template-columns: 1fr 7fr 4fr 1fr;
+  grid-template-rows: 1fr 6fr 1fr;
+  background: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wallPaper {
+  width:100vw;
+  height:100vh;
+  position: absolute;
+  /* background-color: rgba(250,250,250,.5); */
+  z-index: 10001;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.restart {
+  display:none;
+}
+
+.greenWins {
+  display:none;
+  margin-bottom:1em;
+  font-size:4em;
+  color: green;
+  font-weight: bolder;
+  background-color:rgba(255,255,255,0.9);
+}
+
+.blackWins {
+  display:none;
+  margin-bottom:1em;
+  font-size:4em;
+  color: black;
+  font-weight: bolder;
+  background-color:rgba(255,255,255,0.9);
+}
+
+button.wallBtn {
+  font-size: 3vw;
+  font-family: "eurostile", sans-serif;
+  color:#D9D6A2;
+  background-color: #401B2C;
+  padding: 1vw;
+  border-radius: 1rem;
+}
+
+button.greenPlayer {
+  font-size: 2vw;
+  padding: 1vw 2vw;
+  border-radius: 1rem;
+  background-color: green;
+  color:white;
+  margin-left: -25%;
+  pointer-events: none;
+
+}
+
+button.blackPlayer {
+  font-size: 2vw;
+  padding: 1vw 2vw;
+  border-radius: 1rem;
+  background-color: black;
+  color:white;
+  margin-left: -25%;
+  pointer-events: none;
+}
+
+button.wallBtn:hover {
+  cursor: pointer;
+}
+
+button.wallBtn:focus {
+  outline: none;
+  background-color: #D9D6A2;
+  color: #401B2C;
+}
+
+
+.boardWrapper {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  width: 88vh;
+  height:88vh;
+  border: 2vh solid #FFCA40;
+  background-color: #9DBF8E;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.board {
+  width:80vh;
+  height:80vh;
+  border:2vh solid #230A59;
+  background-color: white;
+  display:grid;
+  grid-template-columns: repeat(8,1fr);
+  align-content: space-around;
+  position: relative;
+  /* grid-template-rows: repeat(8,1fr); */
+}
+
+/* .chess {
+  color:white;
+} */
+
+.Black {
+  background: radial-gradient(circle at 55% 15%, white 1px, rgb(13, 14, 13) 5%, black 60%, rgb(171, 172, 166) 100%);  
+}
+
+.Black.disabled {
+  pointer-events:none;
+}
+
+.Green.disabled {
+  pointer-events:none;
+}
+
+.Green {
+  background: radial-gradient(circle at 55% 15%, white 1px, rgb(6, 71, 11) 5%, green 60%, #B5FFBB 100%);  
+}
+
+.isValidPath {
+  background: url(./plus.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.selectedChess {
+  box-shadow: 0px 0px 10px 5px gray;
+}
+
+.rule {
+  /* height:80vh; */
+  border-radius: 1rem;
+  background-color: #262626;
+  border:3px dashed #F2DCC9;
+  grid-column: 3/4;
+  grid-row: 2/3;
+  display:grid;
+  grid-template-rows: 2fr 1fr 2fr 4fr 1fr;
+  /* grid-gap:1em; */
+  padding-left:2em;
+  padding-right:2em;
+  position: relative;
+}
+
+.rule div {
+  display:grid;
+  align-content: center;
+  text-align: center;
+}
+
+.gameTitle {
+  grid-row: 1/2;
+  /* margin-top:5%; */
+  text-align: center;
+  display:grid;
+  align-content: center;
+  font-size:6vw;
+  color:#140100;
+  font-family: 'Roboto Slab', serif;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #630A09;
+
+}
+
+.player-connect {
+  grid-row: 2/3;
+  color:white;
+  text-align: center;
+}
+
+.instruTitle {
+  grid-row: 3/4;
+  text-align: center;
+  font-family: "eurostile", sans-serif;
+  color:#F25C05;
+  display:grid;
+  align-content: center;
+  font-size:2vw;
+}
+
+.instruction {
+  grid-row: 4/5;
+  text-align: center;
+  font-family: "eurostile", sans-serif;
+  color:#f32f66;
+  display:grid;
+  align-content: center;
+  font-size:2vw;
+}
+
+
+div.gameRules{
+  grid-row: 5/6;
+  margin: 0 auto;
+  /* grid-row: 3/4; */
+  color: #F25C05;
+  text-align: center;
+  z-index:10002;
+  /* display: grid; */
+  /* align-content: center; */
+  /* background-color: bisque; */
+}
+
+.instruction {
+  color:white;
+  font-size:2vw;
+}
+.instruction span {
+  display:block;
+  margin-top:2vw;
+  color: #f32f66;
+}
+
+.gameRules input {
+  color:#943C19;
+  font-weight: bolder;
+  text-align: center;
+  display:grid;
+  align-content: center;
+  font-size:1.2vw;
+  padding:0.5rem;
+  background-color: #F2DCC9;
+  border-radius: 0.5rem;
+}
+
+.gameRules input:hover {
+  cursor: pointer;
+}
+
+.gameRules input:focus {
+  outline:none;
+}
+
+.rule ul {
+  list-style-type: none;
+  display:none;
+  position: absolute;
+  height:100%;
+  background-color: rgba(0,0,0,1);
+}
+
+
+.rule ul li {
+  margin-top: 1em;
+  font-size:1.5vw;
+  color:#F2DCC9;
+  padding:1.2em;
+  
+}
